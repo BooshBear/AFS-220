@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'Browserpage.css' %}">
+    <link rel="stylesheet" href="{% static 'browserCss.css' %}">
 </head>
 <body>
   <nav>
@@ -17,15 +17,14 @@
       <li id="Contacts"><a href="http://localhost:8000/contacts/">Contacts</a></li>
     </ul>
   </nav>
-
-  <h1>
-    Welcome to the Text Based Client Simulator
-  </h1>
-
-  <p>
-    Got everything listed down for now all 
-    I have to do is keep implementing the stuff
-    on my jira
-  </p>
+  <header>
+    {% for cate in category %}
+    <button id={{cate.name}}>{{cate.name}}</button>
+    {% endfor %}
+  </header>
+  <main>
+    <h1>RANDOM</h1>
+    <p></p>
+  </main>
 </body>
 </html>

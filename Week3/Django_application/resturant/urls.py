@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .pages.browser import views
+from .pages.browser import browserPage
+from .pages.login import loginPage
+from .pages.order import orderPage
+from .pages.contacts import contactsPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('browser/', views.Browserpage, name='Browserpage')
+    path('browser/', browserPage.BrowserPage, name='Browserpage'),
+    path('login/', loginPage.LoginPage, name='Login'),
+    path('order/', orderPage.OrderPage, name='Order'),
+    path('contacts/', contactsPage.Contacts, name='Contacts'),
 ]
 
