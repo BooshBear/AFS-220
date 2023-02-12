@@ -11,20 +11,27 @@
 <body>
   <nav>
     <ul>
+      <h1>PortsInMeals</h1>
       <li id="Browse"><a href="http://localhost:8000/browser/">Browse</a></li>
       <li id="Order"><a href="http://localhost:8000/order/">Order</a></li>
       <li id="TrackOrder"><a href="http://localhost:8000/trackorder/">Track Order</a></li>
       <li id="Contacts"><a href="http://localhost:8000/contacts/">Contacts</a></li>
+      <h1 id="profile">Profile</h1>
     </ul>
   </nav>
   <header>
     {% for cate in category %}
-    <button id={{cate.name}}>{{cate.name}}</button>
+    <button id={{cate.name}} onclick="">{{cate.name}}</button>
     {% endfor %}
   </header>
   <main>
-    <h1>RANDOM</h1>
-    <p></p>
+    {% if chosenCategoryAry %}
+      {% for meals in chosenCategoryAry %}
+        <p>{{meals}}</p>
+      {% endfor %}
+    {% else %}
+    <h1>Choose a Category</h1>
+    {% endif %}
   </main>
 </body>
 </html>

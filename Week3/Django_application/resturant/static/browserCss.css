@@ -40,6 +40,9 @@ nav ul li:hover {
     text-decoration: underline;
     background-color: rgb(206, 206, 206);
 }
+nav ul #profile {
+    grid-column: 8;
+}
 
 /* The Main Part */
 

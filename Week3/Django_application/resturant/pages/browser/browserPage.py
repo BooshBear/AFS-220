@@ -4,7 +4,6 @@ from ...api.apihandler import *
 
 def BrowserPage(req):
     cate = categories()
-    rand1 = randommeal()
     
     # Objects
 
@@ -52,19 +51,8 @@ def BrowserPage(req):
     category5, category6, category7, category8, category9, category10,
     category11, category12, category13
     ]
-
-
-    # dic = {
-    #     "random1": rand1["meals"][0],
-    #     "random1thumbnail": rand1["meals"][0]["strMealThumb"],
-    #     "random2": rand2["meals"][0],
-    #     "random2thumbnail": rand2["meals"][0]["strMealThumb"],
-    #     "random3": rand3["meals"][0],
-    #     "random3thumbnail": rand3["meals"][0]["strMealThumb"],
-    # }
     
     # Render
     return render(req, 'browserPage.html', {
         "category": categorys,
-        "randommeal": rand1,
         })

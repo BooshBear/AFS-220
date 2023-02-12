@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Categories</h1>
+    <div>
+        {% for category in categories %}
+            <div>
+                <a>
+                    <div>
+                        <h2>{{category.name}}</h2>
+                    </div>
+                </a>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
