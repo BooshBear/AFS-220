@@ -5,17 +5,30 @@
 
 {% block content %}
 <div>
-    <h1>Categories</h1>
-    <div>
+    <div class="container mx-auto flex rounded-lg justify-center items-center gap-8 p-2 bg-slate-500 text-white">
+        <a href="/" class="p-2 rounded-xl active:bg-slate-400 bg-gray-700 hover:text-black">All</a>
         {% for category in categories %}
-            <div>
-                <a>
+            <div class="p-2 rounded-xl active:bg-slate-400 bg-gray-700 hover:text-black">
+                <a href="/?category={{category.name}}">
                     <div>
                         <h2>{{category.name}}</h2>
                     </div>
                 </a>
             </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    <div class="grid grid-cols-3 gap-3 justify-center items-center text-center place-items-center mt-4">
+        {% for meal in meals %}
+            <div>
+                <a>
+                    <div>
+                        <h2>{{meal.name}}</h2>
+                        <h3>${{meal.price}}</h2>
+                        <img src="{{meal.image.url}}" class="h-52 rounded-xl">
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

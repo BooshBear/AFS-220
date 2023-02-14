@@ -7,11 +7,17 @@ from .forms import SignupForm
 # Create your views here.
 
 def index(request):
-    meals = Meal.objects.all()
+    category = request.GET.get('category')
+    
+    if category == None:
+        meals = Meal.objects.all()
+    else:
+        meals = Meal.objects.filter(category__name=category)
+    
     categories = Category.objects.all()
     return render(request, 'core/browser.html', {
         'categories': categories,
-        'items': meals,
+        'meals': meals,
     })
 
 def contact(request):

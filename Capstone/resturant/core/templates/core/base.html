@@ -8,16 +8,20 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav class="flex justify-around items-center h-9 max-h-full bg-zinc-900 shadow-lg mb-2 text-white">
-        <h1 class="px-8">PortsInMeals</h1>
-            <ul class="flex justify-center items-center gap-6">
-                <li id="browser" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="http://localhost:8000/browser/">Browse</a></li>
-                <li id="Order"><a href="http://localhost:8000/order/">Order</a></li>
-                <li id="TrackOrder"><a href="http://localhost:8000/trackorder/">Track Order</a></li>
-                <li id="Contacts"><a href="http://localhost:8000/contacts/">Contacts</a></li>
-            </ul>
-        <h1 id="profile" class="px-8">Profile</h1>
+    <nav class="flex fixed min-w-full justify-center items-center gap-20 h-10 max-h-full bg-zinc-900 shadow-lg text-white">
+        <h1 class="">PortsInMeals</h1>
+        <ul class="flex justify-center items-center gap-6">
+            <li id="browser" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/">Browse</a></li>
+            <li id="Order" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/order/">Order</a></li>
+            <li id="Contacts" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/contacts/">Contacts</a></li>
+        </ul>
+        <div class="flex gap-4">
+            <a href="/signup/" class="p-1 rounded-lg active:bg-slate-400 bg-green-700 hover:text-black">Sign Up</a>
+            <a href="/login/" class="p-1 rounded-lg active:bg-slate-400 bg-cyan-700 hover:text-black">Login</a>
+        </div>
     </nav>
+</br>
+</br>
     {% block content %}
     {% endblock %}
 </body>
