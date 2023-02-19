@@ -4,10 +4,10 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=225)
+    slug = models.SlugField(null=True)
 
     class Meta:
         ordering = ('name',)
-        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
@@ -17,8 +17,10 @@ class Category(models.Model):
 class Meal(models.Model):
     category = models.ForeignKey(Category, related_name='meals', on_delete=models.CASCADE, default=False, null=True)
     name = models.CharField(max_length=225)
+    slug = models.SlugField(null=True)
     price = models.FloatField(null=True)
     image = models.ImageField(upload_to='meal_images', blank=True, null=True)
+    quantity = models.IntegerField(default=0)
     
     def __str__(self):
         return self.name

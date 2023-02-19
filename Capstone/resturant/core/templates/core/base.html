@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.8.5"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -12,17 +13,31 @@
         <h1 class="">PortsInMeals</h1>
         <ul class="flex justify-center items-center gap-6">
             <li id="browser" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/">Browse</a></li>
-            <li id="Order" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/order/">Order</a></li>
+            <li id="Order" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black">
+                <div
+                    hx-get="{%url 'test:hx_menu_order'%}"
+                    hx-trigger="update-menu-order from:body"
+                    hx-swap="innerHTML"
+                >
+                    {% include 'order/menu_order.html' %}
+                </div>
+            </li>
             <li id="Contacts" class="p-0.5 rounded-lg active:bg-slate-400 hover:bg-white hover:text-black"><a href="/contacts/">Contacts</a></li>
         </ul>
         <div class="flex gap-4">
+        {%if request.user.is_authenticated %}
+            <a href="/logout/">Log Out</a>
+        {%else%}
             <a href="/signup/" class="p-1 rounded-lg active:bg-slate-400 bg-green-700 hover:text-black">Sign Up</a>
             <a href="/login/" class="p-1 rounded-lg active:bg-slate-400 bg-cyan-700 hover:text-black">Login</a>
+        {%endif%}
         </div>
     </nav>
 </br>
 </br>
-    {% block content %}
-    {% endblock %}
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

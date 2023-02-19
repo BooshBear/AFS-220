@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Welcome to your Order{% endblock %}
+
+{% block content %}
+<div class="container mx-auto flex flex-col justify-center align-center bg-gray-300 rounded-xl">
+    <h1 class="text-center">ORDER</h1>
+    <div class="self-center">
+        {%for item in order%}
+            {%include 'order/partials/meal_item.html'%}
+        {%endfor%}
+    </div>
+    <h2 class="text-center"> Total Cost: {{order.get_total_cost}}</h2>
+</div>
+{% endblock %}

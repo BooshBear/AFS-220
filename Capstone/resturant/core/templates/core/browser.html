@@ -25,6 +25,13 @@
                         <h2>{{meal.name}}</h2>
                         <h3>${{meal.price}}</h2>
                         <img src="{{meal.image.url}}" class="h-52 rounded-xl">
+                        <a href="#" 
+                        hx-get="{% url 'test:add_to_order' meal.id %}"
+                        hx-target="#menu-order-button"
+                        hx-swap="outerHTML"
+                        >
+                        Order This?
+                        </a>
                     </div>
                 </a>
             </div>

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 
 from meal.models import Category, Meal
 
@@ -36,3 +37,7 @@ def signup(request):
     return render(request, 'core/signup.html', {
         'form': form,
     })
+    
+def logout_req(request):
+    logout(request)
+    return redirect("/")

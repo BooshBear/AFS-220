@@ -1,0 +1,10 @@
+<div class="flex mb-1" id="order-item-{{item.meal.id}}">
+    <h1>-- {{item.meal.name}} -- ${{item.meal.price}}</h1>
+    <div>
+        <a href="#" class="ml-4 p-0.5 bg-gray-700 text-white rounded-xl hover:bg-gray-600"
+        hx-get="{%url 'test:update_order' item.meal.id 'decrement'%}"
+        hx-target="#order-item-{{item.meal.id}}"
+        hx-swap="outerHTML"
+        >Remove</a>
+    </div>
+</div>
